@@ -2,19 +2,22 @@
 <meta charset="utf-8">
 <title>Iframe test</title>
 <body>
-  <div id="test"></div>
   <script>
   function makeRequestWithUserGesture() {
     const testElement = document.getElementById("test");
     document.requestStorageAccess().then(
       function () {
-        testElement.innerHTML = "GOT ACCESS";
+        testElement.innerHTML = "GOT ACCESS: " + document.cookie;
       },
       function () {
-        testElement.innerHTML = "NO ACCESS";
+        testElement.innerHTML = "NO ACCESS: " + document.cookie;
       }
     );
   }
   </script>
-<button onclick="makeRequestWithUserGesture()">Play video</button>
+  <button onclick="makeRequestWithUserGesture()">Get access</button>
+  <div id="test"></div>
+  <script>
+    document.write("Cookie:" + document.cookie);
+  </script>
 </body>
