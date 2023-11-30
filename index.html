@@ -2,8 +2,19 @@
 <meta charset="utf-8">
 <title>Iframe test</title>
 <body>
-  I am in an iframe!
+  <div id="test"></div>
   <script>
-  TestWebMessageListener.postMessage("Some frame test message");
+  function makeRequestWithUserGesture() {
+    const testElement = document.getElementById("test");
+    document.requestStorageAccess().then(
+      function () {
+        testElement.innerHTML = "GOT ACCESS";
+      },
+      function () {
+        testElement.innerHTML = "NO ACCESS";
+      }
+    );
+  }
   </script>
+<button onclick="makeRequestWithUserGesture()">Play video</button>
 </body>
