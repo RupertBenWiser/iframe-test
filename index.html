@@ -3,6 +3,7 @@
 <title>Iframe test</title>
 <body>
   <script>
+  <div id="access"></div>
   const accessElement = document.getElementById("access");
   document.hasStorageAccess().then(
     function (hasAccess) {
@@ -25,7 +26,6 @@
     );
   }
   </script>
-  <div id="access"></div>
   <button onclick="makeRequestWithUserGesture()">Get access</button>
   <div id="test"></div>
   <script>
