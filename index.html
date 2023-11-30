@@ -4,6 +4,8 @@
 <body>
 <div id="access"></div>
   <script>
+    // Set a cookie
+  document.cookie = 'test=blah; path=/; SameSite=None; Secure'
   const accessElement = document.getElementById("access");
   document.hasStorageAccess().then(
     function (hasAccess) {
