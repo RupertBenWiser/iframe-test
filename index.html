@@ -3,17 +3,18 @@
 <title>Iframe test</title>
 <body>
   <script>
+  const accessElement = document.getElementById("access");
+  document.hasStorageAccess().then(
+    function (hasAccess) {
+      accessElement.innerHTML = "Got access already?: " + hasAccess;
+    },
+    function (reason) {
+      accessElement.innerHTML = "Access had a problem: " + reason;
+    }
+  );
+
   function makeRequestWithUserGesture() {
     const testElement = document.getElementById("test");
-    const accessElement = document.getElementById("access");
-    document.hasStorageAccess().then(
-      function (hasAccess) {
-        accessElement.innerHTML = "Got access already?: " + hasAccess;
-      },
-      function (reason) {
-        accessElement.innerHTML = "Access had a problem: " + reason;
-      }
-    );
     document.requestStorageAccess().then(
       function () {
         testElement.innerHTML = "GOT ACCESS: " + document.cookie;
