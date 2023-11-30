@@ -4,8 +4,10 @@
 <body>
 <div id="access"></div>
   <script>
-    // Set a cookie
-  document.cookie = 'test=blah; path=/; SameSite=None; Secure'
+  // Set a cookie before getting access - only as top level
+  if (window.self === window.top) {
+    document.cookie = 'test=blah; path=/; SameSite=None; Secure';
+  }
   const accessElement = document.getElementById("access");
   document.hasStorageAccess().then(
     function (hasAccess) {
