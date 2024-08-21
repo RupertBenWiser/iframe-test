@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Iframe test</title>
+
+<style>
+
+body, button { font-size: 40px; }
+
+</style>
+
 <body>
 <div id="access"></div>
   <script>
@@ -30,8 +37,11 @@
     );
   }
   </script>
+  <br>
   <button onclick="makeRequestWithUserGesture()">Get access</button>
+   <br>
   <button onclick="location.reload()">Reload page</button>
+   <br>
   <div id="test"></div>
   <script>
     document.write("Cookie:" + document.cookie);
